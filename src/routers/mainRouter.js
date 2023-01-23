@@ -7,14 +7,4 @@ const mainRouter = express.Router();
 mainRouter.use('/api/users', usersRouter);
 mainRouter.use('/api/transactions', transactionRouter);
 
-mainRouter.get('/', (req, res) => {
-  res.status(200).json({
-    status: 200,
-    data: {
-      application: 'Program kasir sederhana',
-      message: 'API for interview',
-    },
-  });
-});
-
 module.exports = mainRouter;
