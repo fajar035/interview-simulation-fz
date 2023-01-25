@@ -12,7 +12,7 @@ const logger = morgan(
 const host = 'http://localhost:';
 const port = process.env.PORT || 8000;
 const corsOptions = {
-  origin: [process.env.HOSTBACKEND, '*'],
+  origin: [process.env.HOSTFRONTEND, process.env.HOSTFRONTEND],
   allowedHeaders: ['x-access-token', 'content-type'],
   methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
 };
