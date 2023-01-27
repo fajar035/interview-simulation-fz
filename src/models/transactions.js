@@ -14,7 +14,7 @@ const getAllTransactions = () => {
 const getTransactionByUser = (user) => {
   return new Promise((resolve, reject) => {
     const sql = `SELECT transactions.id, users.name, transactions.date, transactions.total FROM transactions 
-    JOIN users ON transactions.id_user = users.id WHERE users.name = ?`;
+    JOIN users ON transactions.id_user = users.id WHERE users.name = ? ORDER BY transactions.id DESC`;
     db.query(sql, [user], (err, result) => {
       if (err) return reject({ status: 500, err });
       return resolve({ status: 200, result });
