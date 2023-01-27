@@ -2,8 +2,8 @@ const db = require('../config/db');
 
 const getAllTransactions = () => {
   return new Promise((resolve, reject) => {
-    const sql = `SELECT transactions.id, users.name, transactions.date, transactions.total FROM transactions 
-    JOIN users ON transactions.id_user = users.id`;
+    const sql = `SELECT transactions.id, users.name, transactions.date, transactions.total FROM transactions
+    JOIN users ON transactions.id_user = users.id ORDER BY transactions.id DESC`;
     db.query(sql, (err, result) => {
       if (err) return reject({ status: 500, err });
       return resolve({ status: 200, result });
